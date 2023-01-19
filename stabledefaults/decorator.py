@@ -6,6 +6,10 @@ from typing import Callable
 
 
 def stabledefaults(deep=False):
+    """Copies its mutable default arguments before using them.
+
+    Allows for stable use of mutable default arguments without unintuitive
+    side effect."""
     if deep:
         copy_strategy = deepcopy
     else:
