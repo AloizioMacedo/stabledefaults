@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).parent
-sys.path.append(str(HERE.parent))
+sys.path.append(str(HERE.parent.parent))
 
 project = "stabledefaults"
 copyright = "2023, Aloizio Macedo"
