@@ -1,8 +1,4 @@
-from dataclasses import dataclass
-
-import pytest
-
-from stabledefaults.stabledefaults import stabledefaults
+from stabledefaults import stabledefaults
 
 
 @stabledefaults()
