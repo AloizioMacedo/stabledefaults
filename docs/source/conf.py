@@ -8,11 +8,14 @@
 import sys
 from pathlib import Path
 
+try:
+    import stabledefaults
+
+except ImportError:
+    HERE = Path(__file__).parent
+    sys.path.insert(0, str(HERE.parent.parent.parent))
+
 from stabledefaults import __version__
-
-HERE = Path(__file__).parent
-sys.path.append(str(HERE.parent.parent))
-
 
 project = "stabledefaults"
 copyright = "2023, Aloizio Macedo"
