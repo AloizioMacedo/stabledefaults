@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "stabledefaults"
 version = "0.1.0"
-description = ""
+description = "Allows for mutable defaults comfortably and intuitively."
 authors = ["AloizioMacedo <atsam2@hotmail.com>"]
 readme = "README.md"
 
