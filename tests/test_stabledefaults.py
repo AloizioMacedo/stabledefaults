@@ -54,3 +54,17 @@ def test_function_with_nested_lists():
 
 def test_function_without_defaults():
     function_without_defaults(0, 0, 0)
+
+
+def test_correct_behavior_when_passing_mutable():
+    a = []
+    function_with_kwargs(
+        10,
+        a,
+        z={"a": 1},
+        kwarg1=2,
+        kwarg2=[10, 20],
+        kwarg3=[5, 7, 30],
+        kwarg4={7: 5},
+    )
+    assert a == [10]

@@ -22,6 +22,9 @@ def stabledefaults(deep=False):
 
             defaults = f.__defaults__
             total_positional_args = f.__code__.co_argcount
+            total_kwonly_args = f.__code__.co_kwonlyargcount
+
+            total_args_count = total_positional_args + total_kwonly_args
 
             if total_positional_args - n_args_passed > 0:
                 trailing_defaults_copies = [
@@ -34,6 +37,7 @@ def stabledefaults(deep=False):
                 trailing_defaults_copies = []
 
             new_args = list(args) + trailing_defaults_copies
+            new_args = new_args[: total_args_count - len(kwargs)]
 
             default_kwargs = f.__kwdefaults__
 
