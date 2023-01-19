@@ -5,24 +5,32 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+import sys
+from pathlib import Path
 
-project = 'stabledefaults'
-copyright = '2023, Aloizio Macedo'
-author = 'Aloizio Macedo'
-release = '0.0.1'
+HERE = Path(__file__).parent
+sys.path.append(str(HERE.parent))
+
+project = "stabledefaults"
+copyright = "2023, Aloizio Macedo"
+author = "Aloizio Macedo"
+release = "0.1.0"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.autosummary",
+]
 
-templates_path = ['_templates']
+templates_path = ["_templates"]
 exclude_patterns = []
-
 
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
-html_static_path = ['_static']
+html_theme = "furo"
+html_static_path = ["_static"]

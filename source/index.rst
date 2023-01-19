@@ -6,9 +6,14 @@
 Welcome to stabledefaults's documentation!
 ==========================================
 
+stabledefaults is a small package containing a decorator to allow for the expected behavior of lists, dicts and other mutable arguments in default arguments.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+   decorator
+   examples
 
 
 
