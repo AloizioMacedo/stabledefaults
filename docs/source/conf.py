@@ -8,13 +8,16 @@
 import sys
 from pathlib import Path
 
+from stabledefaults import __version__
+
 HERE = Path(__file__).parent
 sys.path.append(str(HERE.parent.parent))
+
 
 project = "stabledefaults"
 copyright = "2023, Aloizio Macedo"
 author = "Aloizio Macedo"
-release = "0.1.0"
+release = __version__
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
