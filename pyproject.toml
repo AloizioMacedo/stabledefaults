@@ -9,6 +9,9 @@ repository = "https://github.com/AloizioMacedo/stabledefaults"
 [tool.poetry.dependencies]
 python = "^3.8"
 
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
 
 [build-system]
 requires = ["poetry-core"]
