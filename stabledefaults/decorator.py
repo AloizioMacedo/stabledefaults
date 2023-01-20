@@ -9,7 +9,11 @@ def stabledefaults(deep=False):
     """Copies its mutable default arguments before using them.
 
     Allows for stable use of mutable default arguments without unintuitive
-    side effect."""
+    side effect.
+
+    Args:
+        deep (bool, optional): If true, makes a deepcopy of the default
+            arguments. If false, makes a shallow copy. Defaults to False."""
     if deep:
         copy_strategy = deepcopy
     else:

@@ -13,6 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Check for "RELEASE:" in commit
+        id: check-release
+        run: |
+          if [[ !($(git log -1 --pretty=format:"%s") =~ ^(RELEASE:)) ]]; then
+            exit 1
+          fi
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -28,4 +34,25 @@ jobs:
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
+
+  tag:
+    needs:
+      deploy
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install poetry
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+      - name: Get version
+        run: export VERSION=$(poetry version | cut -d' ' -f2)
+      - name: Tag master
+        run: git tag v$VERSION
+
 
