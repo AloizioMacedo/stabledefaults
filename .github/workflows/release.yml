@@ -42,6 +42,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -51,8 +53,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
       - name: Get version
-        run: export VERSION=$(poetry version | cut -d' ' -f2)
+        run: |
+          echo "VERSION=$(poetry version | cut -d' ' -f2)" >> $GITHUB_ENV
       - name: Tag master
-        run: git tag v$VERSION
+        run: |
+          git checkout master
+          git tag v$VERSION
+          git push origin v$VERSION
+
 
 
